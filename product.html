@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Gallery</title>
+    <link class="icon" rel="icon" href="./image/Logo.png" type="image/x-icon"> 
+    
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+       
+        .filter-buttons {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .filter-buttons button {
+            margin-right: 10px;
+            padding: 5px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #483902;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .filter-buttons button:hover {
+            background-color: #1c1703;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
+        .product-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+        .product-variant img {
+            width: 100%;
+            height: 200px; /* Ensure equal height */
+            object-fit: cover; /* Ensure the image fills the space while maintaining aspect ratio */
+            border-bottom: 1px solid #ddd;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .favorite-btn {
+            background-color: transparent;
+            color: #ff6347;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            font-size: 24px;
+        }
+        .favorite-btn.active {
+            color: red;
+        }
+        .favorite-btn:hover {
+            transform: scale(1.2);
+        }
+        .favorite-section {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .favorite-item {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .favorite-variant img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 0%;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #7EA172;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .back-to-top:hover {
+            background-color: #41a320;
+        }
+        /* Responsive header styles */
+     
+
+  
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+   
+  <img class="logo" src="./image/logo.png" alt="Logo">
+  <nav>
+      <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#news">news</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+  </nav>
+</header>
+
+<!-- Content -->
+<div style="padding: 80px 20px;">
+    
+</div>
+
+<script>
+    // JavaScript to toggle the mobile menu
+    document.getElementById("hamburger-menu").addEventListener("click", function() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("nav-active");
+
+        // Toggle hamburger animation
+        this.classList.toggle("toggle");
+    });
+</script>
+
+<div class="filter-buttons">
+    <button data-category="all">All</button>
+    <button data-category="Dining Table">Dining Tables</button>
+    <button data-category="Sofa">Sofas</button>
+    <button data-category="Coffee Table">Coffee Tables</button>
+    <button data-category="Bed">Beds</button>
+    <button data-category="Kitchen Cabins">Kitchen Cabins</button>
+    <button data-category="Meeting Tables">Meeting Tables</button>
+    <button data-category="Shelve">Shelves</button>
+    <button data-category="Public Tables">Public Tables</button>
+    <button data-category="File Cabines">File Cabines</button>
+    <button data-category="Office Sofa">Office Sofas</button>
+</div>
+
+<div class="product-grid"></div>
+<button class="back-to-top">↑</button>
+
+    
+   <!-- Footer -->
+ 
+
+  <footer>
+    <div class="container">
+        <div class="grid">
+            <div>
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="/about">About us</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/sponsorship">Sponsorship</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contacts</h3>
+                <ul>
+                    <li><a href="tel:+251114392599">+251 11 439 2599</a></li>
+                    <li><a href="mailto:info@saremfurniture.com">info@saremfurniture.com</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for the latest updates and offers.</p>
+                <form>
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="border-top flex">
+            <p>&copy; 2025 SAREM FURNITURE. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/Saremfurnitureethiopia" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/saremfurnitureethiopia" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/Saremfurnitureethiopia" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.tiktok.com/@sarem_furniture_ethiopia" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<a href="#home" class="back-to-top" id="back-to-top">
+<i class="fas fa-arrow-up"></i>
+</a>
+<script src="./js/scriptt.js"></script>
+<script src="./js/scripts.js"></script>
+
